@@ -5,6 +5,7 @@ use App\Http\Controllers\PatientController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PoliController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -14,10 +15,10 @@ Route::get('/klinik', function () {
     return 'Sistem Informasi Klinik';
 });
 
-Route::get('/pasien', [PatientController::class, 'index']);
+Route::get('/pasien', [PatientController::class, 'index'])->name('pasien.index');
 Route::get('/pasien/{id}', [PatientController::class, 'show']);
-
 Route::get('/dokter', [DoctorController::class, 'index'])->name('dokter.index');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/poli', [PoliController::class, 'index'])->name('poli.index');
 
 Route::get('/tentang', function () {

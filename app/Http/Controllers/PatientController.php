@@ -8,12 +8,13 @@ class PatientController extends Controller
 {
     public function index()
     {
-    $judul = 'Data Pasien';
-    return view('pasien.index', compact('judul'));    
-    }
-    
-    public function show($id)
-    {
-        return 'Menampilkan pasien dengan ID: ' . $id;
+        $patients = [
+            ['id' => 1, 'nama' => 'Budi Santoso', 'alamat' => 'Kudus', 'status' => 'Aktif'],
+            ['id' => 2, 'nama' => 'Siti Aminah', 'alamat' => 'Jepara', 'status' => 'Selesai'],
+            ['id' => 3, 'nama' => 'Rina Wati', 'alamat' => 'Pati', 'status' => 'Aktif'],
+            ['id' => 4, 'nama' => 'Andi Pratama', 'alamat' => 'Semarang', 'status' => 'Selesai'],
+        ];
+
+        return view('pasien.index', compact('patients'));
     }
 }
