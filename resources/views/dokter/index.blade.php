@@ -9,6 +9,7 @@
         <thead>
             <tr style="background-color: #f2f2f2;">
                 <th>No.</th>
+                <th>Kode Dokter</th>
                 <th>Nama Dokter</th>
                 <th>Spesialisasi</th>
                 <th>Status</th>
@@ -18,21 +19,21 @@
             @forelse ($doctors as $doctor)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $doctor['nama'] }}</td>
-                    <td>{{ $doctor['spesialisasi'] }}</td>
+                    <td>{{ $doctor->doctor_code }}</td>
+                    <td>{{ $doctor->name }}</td>
+                    <td>{{ $doctor->specialization }}</td>
                     <td>
-                        @if ($doctor['status'] == 'aktif')
+                        <!-- Cek status aktif pakai is_active (boolean true/false) -->
+                        @if ($doctor->is_active)
                             <span style="color: green; font-weight: bold;">Aktif</span>
-                        @elseif ($doctor['status'] == 'cuti')
-                            <span style="color: orange; font-weight: bold;">Cuti</span>
                         @else
-                            <span style="color: red; font-weight: bold;">Nonaktif</span>
+                            <span style="color: red; font-weight: bold;">Tidak Aktif</span>
                         @endif
                     </td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="4" style="text-align: center;">Belum ada data dokter.</td>
+                    <td colspan="5" style="text-align: center;">Belum ada data dokter.</td>
                 </tr>
             @endforelse
         </tbody>
