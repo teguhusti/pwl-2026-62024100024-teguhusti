@@ -19,7 +19,7 @@ Route::get('/pasien', [PatientController::class, 'index'])->name('pasien.index')
 Route::get('/pasien/{id}', [PatientController::class, 'show']);
 Route::get('/dokter', [DoctorController::class, 'index'])->name('dokter.index');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/poli', [PoliController::class, 'index'])->name('poli.index');
+Route::resource('poli', PoliController::class);
 
 Route::get('/tentang', function () {
     return 'Sistem Informasi Klinik Dikembangkan menggunakan Laravel';

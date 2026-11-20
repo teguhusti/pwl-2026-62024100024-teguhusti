@@ -13,6 +13,7 @@ return new class extends Migration
             $table->string('poli_code')->unique(); // Kode Poli (Unik)
             $table->string('name'); // Nama Poli
             $table->text('description')->nullable(); // Deskripsi
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
