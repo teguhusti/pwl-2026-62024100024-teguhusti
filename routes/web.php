@@ -15,7 +15,7 @@ Route::get('/klinik', function () {
     return 'Sistem Informasi Klinik';
 });
 
-Route::get('/pasien', [PatientController::class, 'index'])->name('pasien.index');
+Route::resource('pasien', PatientController::class);
 Route::get('/pasien/{id}', [PatientController::class, 'show']);
 Route::get('/dokter', [DoctorController::class, 'index'])->name('dokter.index');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
